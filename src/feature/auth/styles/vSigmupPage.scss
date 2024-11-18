@@ -1,0 +1,102 @@
+.sign-up-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        width: 32%;
+        .form-head{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            p{
+                color: #706D6D;
+                font-weight: 500;
+            }
+        }
+        .sign-input-wrraper {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 12px;
+
+            input {
+                border: none;
+                outline: none;
+                border: 1px solid #E5E7EB;
+                border-radius: 5px;
+                padding: 10px 5px;
+
+                ::placeholder {
+                    color: #9CA3AF;
+                }
+            }
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 13px 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #59B792;
+            color: #FFFFFF;
+            font-weight: 700;
+            transition: 0.1s linear;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+            &:hover {
+                background-color: #272E3F;
+                cursor: pointer;
+            }
+        }
+
+        .alreday-have-an-acount {
+            margin-top: 5px;
+            text-align: center;
+            font-weight: 500;
+
+            span {
+                font-weight: 700;
+                color: #59B792;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1080px) {
+    .sign-up-page{
+      form{
+          width: 55%;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .sign-up-page{
+      form{
+          width: 70%;
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .sign-up-page{
+      form{
+          width: 90%;
+      }
+    }
+  }

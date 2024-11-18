@@ -1,0 +1,24 @@
+.footer-wrraper {
+    background-color: #55D5A0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 40px;
+    position: fixed;
+    bottom: 0;
+
+    span {
+        cursor: pointer;
+
+        .footer-icon {
+            color: #F5F7FA;
+        }
+
+        .footer-icon:hover {
+            color: #272E3F;
+            cursor: pointer;
+            transition: 0.1s linear;
+        }
+    }
+}

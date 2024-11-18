@@ -1,0 +1,71 @@
+.Desktop-navbar-wrraper {
+    width: 100VW;
+    height: 9vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    background-color: #F0F5F6;
+
+    .logo-wrraper {
+        color: #3CAB7D;
+        font-weight: bold;
+        font-size: 28px;
+
+        span {
+            color: #272E3F;
+        }
+    }
+
+    .Desktop-navbar-link-wrraper {
+        display: flex;
+        gap: 20px;
+
+        .Desktop-navbar-link {
+            text-decoration: none;
+            padding: 5px 8px;
+            border: 2px solid #59B792;
+            color: #59B792;
+            font-weight: 600;
+            border-radius: 20px;
+            transition: 0.1s linear;
+
+            &:hover {
+                background-color: #59B792;
+                color: #F0F5F6;
+            }
+        }
+
+        .activ-link {
+            background-color: #59B792;
+            color: #F0F5F6;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .Desktop-navbar-profile-link-wrraper {
+        border: 2px solid #59B792;
+        padding: 5px 8px;
+        border-radius: 10px;
+        background-color: #F5F7FA;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #3CAB7D;
+        }
+
+        .Desktop-navbar-profile-link {
+            text-decoration: none;
+            color: #3CAB7D;
+            font-weight: 700s;
+            transition: 0.1s linear;
+
+            &:hover {
+                color: #F5F7FA;
+            }
+        }
+    }
+}
