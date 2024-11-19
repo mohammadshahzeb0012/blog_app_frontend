@@ -11,7 +11,7 @@ const DesktopNavbar = ({ token ,user}) => {
             {
                 token ?
                     <div className="Desktop-navbar-profile-link-wrraper">
-                        <Link className="Desktop-navbar-profile-link">{user?.name ? user.name : "NA"}</Link>
+                        <Link className="Desktop-navbar-profile-link">{user?.name || user.fullName ? user.name : "NA"}</Link>
                     </div> :
                     <div className="Desktop-navbar-link-wrraper">
                         <Link to={"/login"} className="Desktop-navbar-link activ-link">Sign In</Link>

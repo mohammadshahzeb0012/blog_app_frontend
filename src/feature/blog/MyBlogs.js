@@ -1,17 +1,20 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Endpoints from "../../network/endpoints"
 import { updateMyBlogs } from "../../redux/myBlogsSlice"
 import request from "../../network/request"
 import { Loader } from "lucide-react"
 import "./styles/blogs.scss"
 import Blog from "./Blog"
+import { Modal } from "antd"
 
 
 const MyBlogs = () => {
 
-    const { apiStatus, myBlogs } = useSelector(store => store.myBlogs)
     const dispatch = useDispatch()
+    const { apiStatus, myBlogs } = useSelector(store => store.myBlogs)
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [blogToDelete, setBlogToDelete] = useState(null);
 
 
     useEffect(() => {
@@ -45,16 +48,53 @@ const MyBlogs = () => {
         );
     }
 
+    const handelDeletePost = (blogID) => {
+        setBlogToDelete(blogID);
+        setIsModalVisible(true);
+    }
+
+    const confirmDelete = async () => {
+        if (blogToDelete) {
+            try {
+                const { success, data } = await request({
+                    url: Endpoints.deleteBlog,
+                    method: "POST",
+                    data: {
+                        blogID: blogToDelete
+                    }
+                })
+                if (success) {
+                    alert("blog deleted")
+                } else {
+                    alert(data)
+                }
+            } catch (error) {
+                alert("something went wrong")
+            } finally {
+                setIsModalVisible(false)
+            }
+        }
+    }
 
     return (
         <div>
-            
             <div className="blog-page-wrrapwer">
                 {
                     myBlogs.data.map((blogData) => {
-                        return <Blog key={blogData.title} blogData={blogData} />
+                        return <Blog key={blogData.title} blogData={blogData} show={true} handelDeletePost={handelDeletePost} />
                     })
                 }
+            </div>
+            <div>
+                <Modal
+                    title="Are you sure?"
+                    visible={isModalVisible}
+                    onOk={confirmDelete}
+                    onCancel={() => setIsModalVisible(false)}
+                    okText="Yes, Delete"
+                    cancelText="Cancel"
+                >
+                </Modal>
             </div>
         </div>
     )

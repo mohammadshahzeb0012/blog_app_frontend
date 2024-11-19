@@ -1,22 +1,33 @@
-import { Heart, MessageCircle } from "lucide-react"
+import { Heart, MessageCircle, Pen, Trash } from "lucide-react"
 import "./styles/blogs.scss"
+import EpochToHuman from "../../utils/EpochToHuman"
 
-const Blog = ({ blogData }) => {
+const Blog = ({ blogData, show,handelDeletePost }) => {
     return (
         <div className="blog-card-wrraper">
             <div className="blog-card">
                 <div className="blog-by-and-date">
                     <h5>{blogData?.postedBy?.fullname || blogData?.postedBy?.name}</h5>
-                    <span>2 days ago</span>
+                    <span>{EpochToHuman(parseInt(blogData.createdAt))}</span>
                 </div>
                 <span className="blog-card-title">{blogData.title}</span>
                 <p>{blogData?.content}</p>
                 <hr />
                 <div className="like-comment-wrraper">
-                    <Heart className="like-comment-icon" />
-                    <MessageCircle className="like-comment-icon" />
+                    <div className="like-comment-left">
+                        <Heart className="like-comment-icon" />
+                        <MessageCircle className="like-comment-icon" />
+                    </div>
+                    {
+                        show &&
+                        <div className="like-comment-right">
+                            <Trash className="delete-icon"
+                            onClick={()=>handelDeletePost(blogData._id)}
+                            />
+                            <Pen className="like-comment-icon" />
+                        </div>
+                    }
                 </div>
-                {/* #55D5A0 */}
             </div>
         </div>
     )

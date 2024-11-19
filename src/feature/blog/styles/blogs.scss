@@ -54,16 +54,27 @@
 
         .like-comment-wrraper {
             display: flex;
+            justify-content: space-between;
             gap: 20px;
 
-            //   padding: 5px 5px;
-            // margin-bottom: ;
-            .like-comment-icon {
-                transition: 0.1s linear;
-                cursor: pointer;
-
-                &:hover {
-                    color: #68BD9C;
+            .like-comment-left,.like-comment-right{
+                display: flex;
+                gap: 15px;
+                .like-comment-icon {
+                    transition: 0.1s linear;
+                    cursor: pointer;
+    
+                    &:hover {
+                        color: #68BD9C;
+                    }
+                }
+                .delete-icon{
+                    transition: 0.1s linear;
+                    cursor: pointer;
+    
+                    &:hover {
+                        color: pink;
+                    }
                 }
             }
         }

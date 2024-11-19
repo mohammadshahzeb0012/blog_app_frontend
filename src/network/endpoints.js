@@ -7,6 +7,7 @@ const Endpoints = {
     createBlog: `${baseUrl}/blog/createBlog`,
     allBlogs: `${baseUrl}/blog/allBlogs`,
     myBlogs: `${baseUrl}/blog/myBlogs`,
+    deleteBlog: `${baseUrl}/blog/delete`,
     myProfile: `${baseUrl}/user/myProfile`
 }
 
